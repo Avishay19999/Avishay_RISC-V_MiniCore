@@ -1,48 +1,72 @@
-# Avishay FPGA RISC-V Core
+# Avishay RISC-V Mini Core (FPGA)
 
-## Overview
-This repository contains a personal implementation of an RV32I RISC-V core on FPGA.  
-The design is based on an open-source core and was customized, extended, and adapted as part of an academic project.
+This project is a personal adaptation of a RISC-V Mini Core, based on an open-source infrastructure, with the goal of gaining practical understanding of pipelined processor design and control logic in hardware.
 
-The goal of this project is to explore computer architecture concepts hands-on, including pipelining, hazards, memory organization, and hardware–software interaction on a real FPGA platform. :contentReference[oaicite:0]{index=0}
+The focus of this work is on exploring the internal behavior of a 5-stage RISC-V pipeline and understanding how instructions flow through the different stages in a real hardware-oriented design.
 
-## Architecture
+---
 
-The core is organized as a classic 5-stage pipeline:
+## Architecture Overview
 
-1. **Instruction Fetch (IF)** – Sends the program counter (PC) to instruction memory and selects the next PC (PC+4 or branch/jump target).  
-2. **Decode (ID)** – Decodes the instruction, sets control bits, builds immediates, and reads the register file.  
-3. **Execute (EX)** – Performs ALU operations, calculates load/store addresses, and resolves branches/jumps.  
-4. **Memory (MEM)** – Handles data memory accesses (LOAD/STORE), byte enables, and sign extension.  
-5. **Write Back (WB)** – Selects between ALU result and memory data and writes back to the register file.
+The core follows a standard 5-stage pipeline structure:
 
-The design includes:
-- Data hazards handling with forwarding logic.
-- Load hazard detection and stalling with bubble insertion.
-- Control hazards handling using pipeline flush on mispredicted branches.
-- Separate **I_MEM** and **D_MEM** regions wrapped by a unified memory wrapper.
+1. IF – Instruction Fetch  
+2. ID – Instruction Decode  
+3. EX – Execute  
+4. MEM – Memory Access  
+5. WB – Write Back  
 
-## Main Features
+Each stage is implemented as a dedicated module, allowing clear separation between instruction flow, control logic, and execution behavior.
 
-- RV32I compatible core.
-- 5-stage pipelined micro-architecture.
-- Data, load, and control hazard support.
-- Memory wrapper that connects instruction and data memory to the core.
-- Clean SystemVerilog coding style with parameters, enums, and macros for MSFFs.
+The design handles basic pipeline control requirements and illustrates the challenges of coordinating data and control signals across multiple stages.
 
-## Tools
+---
 
-The project is intended to be used with:
+## Project Structure
 
-- **ModelSim / Questa** – for simulation.
-- **Quartus / FPGA tools** – for synthesis and loading onto an FPGA board.
-- **VS Code** – as main editor.
+Main components of the Mini Core:
 
-(You can adapt this list to the exact tools you are using.)
+- `mini_core_if.sv` – Instruction fetch stage  
+- `mini_core_ctrl.sv` – Control and decoding logic  
+- `mini_core_exe.sv` – Execution and ALU operations  
+- `mini_core_mem_acs.sv` – Memory access handling  
+- `mini_core_wb.sv` – Write-back logic  
+- `mini_core.sv` – Top-level integration module  
 
-## Project Ownership & Credits
+---
 
-- **Original core design**: Amichai Ben-David  
-- **Current project owner & maintainer**: Avishay Eizenberg  
+## My Contribution
 
-This repository is a fork-based customization and extension of the original open-source RISC-V core, with modifications, experiments, and further development done by Avishay Eizenberg.
+- Isolated the Mini Core from a larger open-source framework  
+- Adapted the design for focused study and independent use  
+- Improved code readability and project structure  
+- Gained hands-on experience with pipeline flow and control coordination  
+- Explored practical CPU architecture concepts through implementation
+
+This project reflects my learning process and practical development as an entry-level electrical engineer interested in processor design and FPGA systems.
+
+---
+
+## Tools & Environment
+
+- SystemVerilog  
+- FPGA development tools (simulation & synthesis)  
+- Git & GitHub for version control  
+
+---
+
+## Credits
+
+Original infrastructure:  
+Amichai Ben-David – FPGA-MAFIA Project
+
+Current adaptation and documentation:  
+Avishay Eizenberg
+
+---
+
+## Future Direction
+
+- Improve hazard handling mechanisms  
+- Add more detailed performance analysis  
+- Continue refining pipeline clarity and structure  
