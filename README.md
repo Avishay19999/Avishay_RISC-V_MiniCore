@@ -37,14 +37,17 @@ Main components of the Mini Core:
 
 ## My Contribution
 
-- Isolated the Mini Core from a larger open-source framework  
-- Adapted the design for focused study and independent use  
-- Improved code readability and project structure  
-- Gained hands-on experience with pipeline flow and control coordination  
-- Explored practical CPU architecture concepts through implementation
+This project was developed as a personal and independent implementation of a Mini Core, using an open-source infrastructure solely as a technical starting point.
 
-This project reflects my learning process and practical development as an entry-level electrical engineer interested in processor design and FPGA systems.
+Throughout the work, I focused on gaining a deep understanding of the processor structure, pipeline flow, and the behavior of control signals across the different stages. The implementation served as a practical platform for learning, experimentation, and analysis of fundamental CPU architecture principles.
 
+The work included:
+- Adapting and shaping the core to suit personal learning and engineering goals  
+- Analyzing and exploring control logic and data flow behavior  
+- Improving code structure and organization for clarity and maintainability  
+- Strengthening practical understanding of pipeline-based hardware design  
+
+This project reflects an independent learning process and professional development in the field of processor design and FPGA-based systems.
 ---
 
 ## Tools & Environment
