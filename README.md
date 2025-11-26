@@ -20,6 +20,11 @@ Each stage is implemented as a dedicated module, allowing clear separation betwe
 
 The design handles basic pipeline control requirements and illustrates the challenges of coordinating data and control signals across multiple stages.
 
+The following diagram illustrates the full connectivity and data flow across the 5-stage Mini Core pipeline:
+<img width="835" height="544" alt="image" src="https://github.com/user-attachments/assets/a4a4bf0a-ded1-47a0-9e41-76f361191e2f" />
+
+
+
 ---
 
 ## Project Structure
