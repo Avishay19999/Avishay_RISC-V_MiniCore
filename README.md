@@ -1,4 +1,4 @@
-# Avishay RISC-V Mini Core (FPGA)
+#  RISC-V Mini Core (FPGA)
 
 This project is a personal adaptation of a RISC-V Mini Core, based on an open-source infrastructure, with the goal of gaining practical understanding of pipelined processor design and control logic in hardware.
 
